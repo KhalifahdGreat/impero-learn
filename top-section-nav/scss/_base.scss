@@ -1,0 +1,306 @@
+@use "scss/breakpoint";
+@use "scss/button";
+@use "scss/typography";
+@use "scss/variables" as *;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s;
+  &:hover {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+iframe {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+  border-top-left-radius: $base-border-radius;
+  border-top-right-radius: $base-border-radius;
+  &:hover {
+    transform: scale(1.08);
+  }
+}
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s;
+  &:hover {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+.video {
+  width: 100%;
+  height: 100%;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+// .video:hover {
+//   opacity: 1;
+// }
+.video-class {
+  height: 150px;
+  opacity: 1;
+}
+.nav {
+  grid-column: 1/2;
+  width: 2rem;
+  height: 100vh;
+  box-shadow: 0 2px 6px #dedede;
+  position: fixed;
+  z-index: 999;
+
+  &__header {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &-icon {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      display: none;
+    }
+    &-title {
+      color: map-get($colors, color-black);
+      letter-spacing: 0.03rem;
+      font-size: 0.8rem;
+      font-weight: 400;
+
+      &-span {
+        color: map-get($colors, primary-color-1);
+        font-size: 1.2rem;
+        font-family: "Parisienne", cursive;
+      }
+    }
+
+    &-menu {
+      height: 0.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      justify-items: flex-end;
+    }
+  }
+  .nav__links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    // align-items: flex-start;
+
+    &-container {
+      display: flex;
+      align-items: center;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      transition: all linear 0.3s;
+      &:hover {
+        background-color: #74adbf;
+
+        cursor: pointer;
+        .nav__links-container-description-text {
+          color: map-get($colors, color-white);
+        }
+        .nav__links-container-icon {
+          color: map-get($colors, color-black);
+        }
+      }
+
+      &-icon {
+        font-size: $icon-size;
+        color: map-get($colors, primary-color-2);
+        width: 100%;
+        text-align: center;
+      }
+      &-description {
+        width: 70%;
+        display: none;
+        &-text {
+          text-decoration: none;
+          text-transform: capitalize;
+          color: map-get($colors, color-black);
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}
+.line {
+  width: 0.7rem;
+  height: 1px;
+  background-color: map-get($colors, color-black);
+  margin-bottom: 0.2rem;
+}
+
+.check-box:checked + nav .nav__header-icon {
+  display: flex;
+}
+.check-box:checked + nav {
+  width: 250px;
+  transition: all ease-out 0.5s;
+}
+
+.check-box:checked + nav .nav__links .nav__links-container-description {
+  display: flex;
+}
+.check-box:checked + nav .nav__links .nav__links-container-icon {
+  width: 30%;
+}
+
+.video__container-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  opacity: 0;
+  background: linear-gradient(#2588bd82, rgba(0, 0, 0, 0.5));
+  transition: all ease-in-out 0.8s;
+
+  &-header {
+    font-size: $header-font;
+    color: lighten($color: #2589bd, $amount: 10%);
+    margin-top: -2rem;
+    font-weight: 400;
+    // opacity: 1 !important;
+  }
+  &-description {
+    font-size: 0.8rem;
+    color: map-get($colors, color-white);
+    font-weight: 300;
+  }
+}
+.image__container-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  opacity: 0;
+  background: linear-gradient(#2588bd82, rgba(0, 0, 0, 0.5));
+  transition: all ease-in-out 0.8s;
+
+  &-header {
+    font-size: $header-font;
+    color: lighten($color: #2589bd, $amount: 10%);
+    margin-top: -2rem;
+    font-weight: 400;
+    // opacity: 1 !important;
+  }
+  &-description {
+    font-size: 0.8rem;
+    color: map-get($colors, color-white);
+    font-weight: 300;
+  }
+}
+
+.card__container {
+  box-shadow: 0 2px 6px #dedede;
+  border-radius: $base-border-radius;
+  height: 350px;
+  overflow: hidden;
+  &-video {
+    width: 100%;
+    overflow: hidden;
+    border-top-left-radius: $base-border-radius;
+    border-top-right-radius: $base-border-radius;
+
+    &:hover {
+      video::-webkit-media-controls-volume-button {
+        display: none;
+      }
+    }
+  }
+  &-description {
+    width: 90%;
+    margin: 0 auto;
+    line-height: 1.2rem;
+    padding-top: 2rem;
+    &-header {
+      padding-bottom: 1rem;
+      font-size: $paragraph-font;
+      font-weight: 500;
+      color: lighten($color: #38686a, $amount: 40%);
+    }
+    &-text {
+      font-weight: 300;
+      color: lighten($color: #a3b4a2, $amount: 1%);
+    }
+  }
+}
+.video__container-content:hover {
+  opacity: 1;
+}
+
+.search {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  margin: 0 auto;
+  z-index: 100;
+
+  &-input {
+    position: relative;
+    width: 90%;
+    height: 100%;
+    border: transparent;
+    box-shadow: 0 0 1px #dedede;
+    background-color: rgba(255, 255, 255, 0.537);
+    outline: none;
+    border-radius: $base-border-radius;
+    padding-left: 1rem;
+    padding-right: 3rem;
+    &:active {
+      background: linear-gradient(#2588bd89, rgba(0, 0, 0, 0.4));
+    }
+    &::placeholder {
+      font-style: italic;
+      color: map-get($colors, primary-color-3);
+      font-weight: 300;
+      font-size: 1rem;
+      opacity: 0.5rem;
+    }
+  }
+}
+.search-btn {
+  position: absolute;
+  right: 2.5rem;
+  font-size: 1.5rem;
+  transition: all 0.5s;
+
+  color: map-get($colors, primary-color-3);
+  overflow: hidden;
+  &:hover {
+    color: map-get($colors, primary-color-4);
+  }
+}
