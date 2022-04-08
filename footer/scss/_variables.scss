@@ -1,0 +1,25 @@
+@use "sass:math";
+//color
+
+$colors: (
+  "primary-color-1": #14b4f1,
+  "primary-color-2": #2589bd,
+  "primary-color-3": #187795,
+  "primary-color-4": #38686a,
+  "primary-color-5": #a3b4a2,
+  "primary-color-6": #cdc6ae,
+  "color-white": #fff,
+  "color-off-white": #efefef,
+  "color-black": #000,
+);
+
+//fonts
+
+$paragraph-font: 1rem;
+$header-font: 1.5rem;
+$icon-size: 1rem;
+
+//spacing
+$base-padding: 1rem;
+$base-margin: 1rem;
+$base-border-radius: 1rem;
