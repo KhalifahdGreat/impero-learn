@@ -1,0 +1,25 @@
+// //variable and functions
+// @import "scss/variables";
+// @import "scss/typography";
+// //base &layout
+// @import "scss/base";
+// @import "scss/grid";
+
+// //colors
+// @import "scss/colors";
+// //components (button,card,navbar);
+// @import "scss/button";
+
+// //utilities(margin,padding,opacity);
+// @import "scss/utilities";
+// //media screen
+// @import "scss/breakpoint";
+
+@forward "scss/base";
+@forward "scss/breakpoint";
+@forward "scss/button";
+@forward "scss/colors";
+@forward "scss/grid";
+@forward "scss/typography";
+@forward "scss/utilities";
+@forward "scss/variables";
