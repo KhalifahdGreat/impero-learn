@@ -7,14 +7,12 @@
 .banner {
   grid-template-columns: 2/-1;
   width: 98vw;
-  // height: 120vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   gap: 0.5rem;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 2rem;
   padding-left: 4rem;
   height: 100vh;
 }
